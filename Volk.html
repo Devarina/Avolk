@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>A.Volk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #fca311;
+            --secondary-color: #f4d58d;
+            --text-color: #112A46;
+            --background-color:rgb(177, 204, 170);
+            --font-family:'Dosis', sans-serif;
+        }
+
+        *{
+            font-family: var(--font-family);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+                display: flex;
+            }
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background-color: var(--secondary-color);
+        }
+
+        ul {
+            float: right;
+        }
+
+        li {
+            display: inline;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            padding: 10px;
+            font-size: 30px;
+            color: var(--text-color);
+            /*width: 100%;*/
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            gap: 20px;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            padding: 10px;
+            text-align: center;
+            color: var(--text-color);
+            margin-top: 20px;
+            flex: 1;
+        }
+
+        .citate {
+            text-align: center;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex; 
+            gap: 20px; 
+        }
+
+        nav ul li {
+            display: inline-block;
+            
+        }
+
+        nav ul a {
+            font-size: 24px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: 0.3s;
+        }
+
+        nav ul a:hover {
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        section {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .text-section {
+            flex: 1;
+            padding: 20px;
+            background-color: var(--background-color);
+            border: 1px solid var(--text-color);
+            text-align: left;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 900px; 
+            height: 400px; 
+            margin: 20px auto; 
+            overflow: hidden;
+            border-radius: 10px;
+            border: 2px solid var(--text-color); 
+            box-shadow: 0 4px 8px rgba(125, 131, 151, 0.2); 
+            background-color: var(--primary-color);
+        }
+
+     
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%; 
+            
+            
+        }
+
+        .slide {
+            min-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%; 
+            object-fit: contain; 
+            border-radius: 10px;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 8px; 
+            cursor: pointer;
+            font-size: 20px; 
+            z-index: 2;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        .nav-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        
+        form {
+            background-color: rgb(177, 204, 170);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px; 
+            margin: 0 auto; 
+            box-shadow: 0 4px 8px rgba(30, 29, 29, 0.1); 
+        }
+
+       
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        
+        form input[type="text"],
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box; 
+        }
+
+        /* Lomakkeen textarea */
+        form textarea {
+            resize: vertical; 
+            min-height: 150px; 
+        }
+
+        /* Lomakkeen painike */
+        form input[type="submit"] {
+            background-color: #d08814;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease; 
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #45a049; 
+        }
+
+        div a {
+            font-size: 24px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: 0.3s;
+            gap: 10px;
+
+        }
+
+        div a a:hover {
+            color: rgba(0, 0, 0, 0.5);
+
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column; 
+                text-align: center; 
+                padding: 10px; 
+            }
+
+            nav ul {
+                flex-direction: column; 
+                gap: 10px; 
+            }
+
+            nav ul a {
+                font-size: 20px; 
+            }
+
+            /* Responsiivisuus pienemmille näytöille näytöille */
+            form {
+                padding: 15px; 
+            }
+
+            form input[type="text"],
+            form textarea {
+                font-size: 14px; 
+            }
+
+            form input[type="submit"] {
+                width: 100%; 
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>A.VOLK</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About me</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact me</a></li>
+            </ul>
+        </nav>
+        <p class="citate">"The object of art is not to reproduce reality, but to create a reality of the same intensity." — Alberto Giacometti </p>
+    </header>
+    <div class="container">
+        <section class="image-section img">
+            <img src="maalaus2.jpg" alt="Paintbrushes and a painting">
+        </section>
+        <section class="text-section">
+            Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </section>
+    </div>
+    <div class="slideshow-container">
+        <div class="slides">
+            <div class="slide"><img src="slidekuva1.jpg" alt="Kuva 1" loading="lazy"></div>
+            <div class="slide"><img src="slidekuva2.jpg" alt="Kuva 2" loading="lazy"></div>
+            <div class="slide"><img src="slidekuva3.jpg" alt="Kuva 3" loading="lazy"></div>
+            <div class="slide"><img src="slidekuva4.jpg" alt="Kuva 4" loading="lazy"></div>
+        </div>
+        <button class="nav-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="nav-btn next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function moveSlide(direction) {
+            currentIndex += direction;
+            if (currentIndex >= totalSlides) {
+                currentIndex = 0;
+            } else if (currentIndex < 0) {
+                currentIndex = totalSlides - 1;
+            }
+            slides.style.transform = `translateX(${-currentIndex * 100}%)`;
+        }
+
+        function autoSlide() {
+            moveSlide(1);
+        }
+
+        if (totalSlides > 0) {
+            setInterval(autoSlide, 10000); // Vaihtaa diaa automaattisesti 10 sekunnin välein voi vaihtaa
+        }
+    </script>
+<div class="container">
+    <form action="/action_page.php">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+
+        <label for="subject">Subject</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." required></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+  
+    <footer>
+        <p>&copy; 2025 A.Volk. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://twitter.com/yourprofile">Twitter</a>
+            <a href="https://instagram.com/yourprofile">Instagram</a>
+            <a href="https://facebook.com/yourprofile">Facebook</a>
+        </div>
+    </footer>
+</body>
+</html>
