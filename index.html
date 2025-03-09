@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A.Volk</title>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
     <style>
@@ -9,34 +10,34 @@
             --primary-color: #fca311;
             --secondary-color: #f4d58d;
             --text-color: #112A46;
-            --background-color:rgb(177, 204, 170);
-            --font-family:'Dosis', sans-serif;
+            --background-color: rgb(177, 204, 170);
+            --font-family: 'Dosis', sans-serif;
         }
 
-        *{
+        * {
             font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                text-align: center;
-                display: flex;
-            }
+        body {
+            width: 100%;
+            overflow-x: hidden;
         }
 
         .container {
-            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 20px;
             padding: 20px;
             background-color: var(--secondary-color);
+            width: 100%;
         }
 
         ul {
-            float: right;
+            list-style: none;
         }
 
         li {
@@ -48,7 +49,7 @@
             padding: 10px;
             font-size: 30px;
             color: var(--text-color);
-            /*width: 100%;*/
+            width: 100%;
             display: flex;
             justify-content: space-between; 
             align-items: center; 
@@ -62,7 +63,7 @@
             text-align: center;
             color: var(--text-color);
             margin-top: 20px;
-            flex: 1;
+            width: 100%;
         }
 
         .citate {
@@ -81,7 +82,6 @@
 
         nav ul li {
             display: inline-block;
-            
         }
 
         nav ul a {
@@ -89,6 +89,8 @@
             text-decoration: none;
             color: var(--text-color);
             transition: 0.3s;
+            display: block;
+            padding: 5px;
         }
 
         nav ul a:hover {
@@ -99,6 +101,7 @@
             max-width: 100%;
             height: auto;
             border-radius: 10px;
+            display: block;
         }
 
         section {
@@ -129,14 +132,10 @@
             background-color: var(--primary-color);
         }
 
-     
-
         .slides {
             display: flex;
             transition: transform 0.5s ease-in-out;
             height: 100%; 
-            
-            
         }
 
         .slide {
@@ -164,6 +163,12 @@
             cursor: pointer;
             font-size: 20px; 
             z-index: 2;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .prev { left: 10px; }
@@ -172,7 +177,6 @@
         .nav-btn:hover {
             background-color: rgba(0, 0, 0, 0.8);
         }
-
         
         form {
             background-color: rgb(177, 204, 170);
@@ -180,9 +184,9 @@
             border-radius: 10px;
             max-width: 600px; 
             margin: 0 auto; 
-            box-shadow: 0 4px 8px rgba(30, 29, 29, 0.1); 
+            box-shadow: 0 4px 8px rgba(30, 29, 29, 0.1);
+            width: 100%;
         }
-
        
         form label {
             display: block;
@@ -190,7 +194,6 @@
             font-weight: bold;
             color: var(--text-color);
         }
-
         
         form input[type="text"],
         form textarea {
@@ -203,13 +206,11 @@
             box-sizing: border-box; 
         }
 
-        /* Lomakkeen textarea */
         form textarea {
             resize: vertical; 
             min-height: 150px; 
         }
 
-        /* Lomakkeen painike */
         form input[type="submit"] {
             background-color: #d08814;
             color: white;
@@ -225,50 +226,189 @@
             background-color: #45a049; 
         }
 
-        div a {
-            font-size: 24px;
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            font-size: 18px;
             text-decoration: none;
             color: var(--text-color);
             transition: 0.3s;
-            gap: 10px;
-
+            padding: 5px;
         }
 
-        div a a:hover {
+        .social-links a:hover {
             color: rgba(0, 0, 0, 0.5);
-
         }
 
+        /* Mobiiliresponsiivisuus */
         @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+                gap: 15px;
+                width: 100%;
+            }
+
             header {
                 flex-direction: column; 
                 text-align: center; 
                 padding: 10px; 
+                width: 100%;
+            }
+
+            nav {
+                width: 100%;
             }
 
             nav ul {
                 flex-direction: column; 
-                gap: 10px; 
+                gap: 10px;
+                align-items: center;
+                width: 100%;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: center;
             }
 
             nav ul a {
                 font-size: 20px; 
+                width: 100%;
+                padding: 8px 0;
             }
 
-            /* Responsiivisuus pienemmille näytöille näytöille */
+            .citate {
+                font-size: 16px;
+                padding: 0 10px;
+                width: 100%;
+            }
+
+            section, .text-section, .image-section {
+                width: 100%;
+                margin: 0;
+                flex: none;
+            }
+
+            .slideshow-container {
+                height: 300px;
+                margin: 15px auto;
+                width: 90%;
+            }
+
             form {
                 padding: 15px; 
+                width: 90%;
+                margin: 0 auto;
             }
 
             form input[type="text"],
             form textarea {
-                font-size: 14px; 
+                font-size: 14px;
+                width: 100%;
             }
 
             form input[type="submit"] {
                 width: 100%; 
             }
 
+            #contact.container {
+                padding: 15px 0;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 26px;
+                width: 100%;
+            }
+            
+            .citate {
+                font-size: 14px;
+            }
+
+            nav ul a {
+                font-size: 18px;
+                padding: 8px 0;
+            }
+
+            .slideshow-container {
+                height: 250px;
+                width: 95%;
+            }
+
+            .nav-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+
+            form {
+                width: 95%;
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            header h1 {
+                font-size: 24px;
+            }
+
+            nav ul {
+                gap: 5px;
+            }
+
+            nav ul a {
+                font-size: 16px;
+                padding: 6px 0;
+            }
+
+            .slideshow-container {
+                height: 200px;
+                width: 98%;
+            }
+
+            .nav-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+            }
+
+            section {
+                padding: 15px 10px;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+            }
+
+            form {
+                width: 98%;
+                padding: 10px;
+            }
+
+            form label {
+                margin-bottom: 5px;
+            }
+
+            form input[type="text"],
+            form textarea {
+                margin-bottom: 10px;
+                padding: 8px;
+            }
+
+            form textarea {
+                min-height: 120px;
+            }
         }
     </style>
 </head>
@@ -284,15 +424,15 @@
         </nav>
         <p class="citate">"The object of art is not to reproduce reality, but to create a reality of the same intensity." — Alberto Giacometti </p>
     </header>
-    <div class="container">
-        <section class="image-section img">
+    <div class="container" id="about">
+        <section class="image-section">
             <img src="maalaus2.jpg" alt="Paintbrushes and a painting">
         </section>
         <section class="text-section">
             Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </section>
     </div>
-    <div class="slideshow-container">
+    <div class="slideshow-container" id="gallery">
         <div class="slides">
             <div class="slide"><img src="slidekuva1.jpg" alt="Kuva 1" loading="lazy"></div>
             <div class="slide"><img src="slidekuva2.jpg" alt="Kuva 2" loading="lazy"></div>
@@ -322,23 +462,23 @@
         }
 
         if (totalSlides > 0) {
-            setInterval(autoSlide, 10000); // Vaihtaa diaa automaattisesti 10 sekunnin välein voi vaihtaa
+            setInterval(autoSlide, 10000);
         }
     </script>
-<div class="container">
-    <form action="/action_page.php">
-        <label for="fname">First Name</label>
-        <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+    <div class="container" id="contact">
+        <form action="/action_page.php">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
 
-        <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
 
-        <label for="subject">Subject</label>
-        <textarea id="subject" name="subject" placeholder="Write something.." required></textarea>
+            <label for="subject">Subject</label>
+            <textarea id="subject" name="subject" placeholder="Write something.." required></textarea>
 
-        <input type="submit" value="Submit">
-    </form>
-</div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
   
     <footer>
         <p>&copy; 2025 A.Volk. All rights reserved.</p>
